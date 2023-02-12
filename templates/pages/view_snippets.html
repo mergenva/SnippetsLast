@@ -9,6 +9,16 @@
         </div>
 
         <div class="row">
+            <div class="col-4 offset-2">
+                Список сниппетов:
+                <ul>
+                {% for snippet in snippets %}
+                    <li>
+                        {{ snippet.name }}
+                    </li>
+                {% endfor %}
+                    </ul>
+            </div>
             <div class="col">
                 <table class="table table-striped">
                     <thead class="thead-dark">
