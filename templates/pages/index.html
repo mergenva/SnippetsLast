@@ -1,14 +1,20 @@
 {% extends 'base.html' %}
-{% block content %}
-    <!-- Begin page content -->
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
-                <h1>{{ pagename }}</h1>
-                <hr>
-            </div>
-        </div>
+{% block style %}
+        main > .container {
+                padding: 60px 15px 0;
 
+            }
+
+            .footer {
+                background-color: #f5f5f5;
+            }
+
+            .footer > .container {
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+{% endblock %}
+{% block content %}
         <div class="row">
             <div class="col">
                 <p>Добро пожаловать, уважаемый пользователь!
@@ -42,5 +48,4 @@
                 </form>
             </div>
         </div>
-    </div>
 {% endblock %}
