@@ -22,11 +22,14 @@
                             Посмотреть сниппеты
                         </a>
                     </li>
+                    {% if request.user.is_authenticated %}
                     <li class="form-inline">
                         <a class="btn btn-outline-secondary" href="{% url 'my_snippets' %}">
                             Мои сниппеты
                         </a>
                     </li>
+                    {% else %}
+                    {% endif %}
                 </ul>
             </div>
             <!-- Форма авторизации -->
@@ -36,6 +39,8 @@
                 <a href="{% url 'logout' %}">Выйти</a>
             </span>
             {% else %}
+
+
             <!-- Стандартная форма авторизации
             <form method="post" action="{% url 'login' %}">{% csrf_token %}
                 <label for="username">username: </label>
