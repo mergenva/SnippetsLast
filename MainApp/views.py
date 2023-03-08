@@ -1,7 +1,7 @@
 from django.http import Http404, HttpResponse
 from django.shortcuts import render, redirect
 from MainApp.models import Snippet
-from MainApp.forms import SnippetForm, UserForm
+from MainApp.forms import SnippetForm, UserForm, CommentForm
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required # декоратор функции-обработчик, для которой обязательна авторизация
 from django.contrib.auth.models import User
@@ -19,14 +19,15 @@ def index_page(request):
 
 
 def snippet_page(request, snippet_id):
+    context = get_base_context(request, 'Страница сниппета')
     try:
         snippet = Snippet.objects.get(id=snippet_id)
     except Snippet.DoesNotExist:
         raise Http404
 
-    context = {
-        "snippet": snippet
-    }
+    context["snippet"] = snippet
+    form = CommentForm()
+    context["comment_form"] = form
     return render(request, 'pages/snippet.html', context)
 
 

@@ -23,7 +23,9 @@
     </div>
 </fieldset>
 <form action="{% url 'comment_add' %}" method="post">
-    {{ comment_form }}
+    {% csrf_token %}
+    <input type="hidden" name="snippet" value="{{ snippet.id }}">
+    {{ comment_form.as_p }}
     <button type="submit">Отправить</button>
 </form>
 
