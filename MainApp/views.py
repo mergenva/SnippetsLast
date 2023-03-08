@@ -56,7 +56,15 @@ def add_snippet_page(request):
 
 def add_comment(request):
     if request.method == "POST":
-        ...
+        comment_form = CommentForm(request.POST)
+        id = request.POST['snippet']
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.snippet = Snippet.objects.get(id=id)
+            comment.save()
+        return redirect('snippets')
+    raise Http404
 
 
 def snippet_edit(request, snippet_id):
