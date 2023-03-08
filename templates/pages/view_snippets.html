@@ -1,52 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
-        <div class="row">
-            <div class="col">
-                <p>На данной страницы будут отображаться все созданные сниппеты.</p>
-                <p>Пока тут просто пример, но скоро заменим реальными сниппетами из БД!</p>
-                <hr>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-4 offset-2">
-                Список сниппетов:
-                <ul>
+<div class="row">
+    <div class="col">
+        <div class="col">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Название</th>
+                    <th scope="col">Дата создания</th>
+                    <th scope="col">Пользователь</th>
+                    <th scope="col">Публичный</th>
+                </tr>
+                </thead>
+                <tbody>
                 {% for snippet in snippets %}
-                    <li>
-                        {{ snippet.name }}
-                    </li>
+                <tr>
+                    <td scope="row">{{ snippet.id }}</td>
+                    <td><a href="{% url 'snippet' snippet_id=snippet.id %}">{{ snippet.name }}</a>
+                        <a href="{% url 'snippet_delete' snippet_id=snippet.id %}">
+                        <i class="fa-sharp fa-regular fa-rectangle-xmark"></i></a>
+                        <a href="{% url 'snippet_edit' snippet_id=snippet.id %}">
+                        <i class="fa-regular fa-pen-to-square"></i></a>
+                    </td>
+                    <td>{{ snippet.creation_date|date:"M d, Y" }}</td>
+                    <td>{{ snippet.user|default:"Анонимный пользователь"}}</td>
+                    <td>{{ snippet.public }}</td>
+                </tr>
                 {% endfor %}
-                    </ul>
-            </div>
-            <div class="col">
-                <table class="table table-striped">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Название</th>
-                        <th scope="col">Дата создания</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    <tr>
-                        <td scope="row">1</td>
-                        <td><a href="/snippets/1">Пример сниппета</a></td>
-                        <td>23.05.2019 11:32</td>
-                    </tr>
-
-                    <tr>
-                        <td scope="row">2</td>
-                        <td><a href="/snippets/2">И ещё один пример</a></td>
-                        <td>23.05.2019 11:34</td>
-                    </tr>
-
-                    </tbody>
-                </table>
-                <div align="right">
-                    <i style="color: gray;">Всего сниппетов: 2</i>
-                </div>
+                </tbody>
+            </table>
+            <div align="right">
+                <i style="...">Всего сниппетов: {{ snippets.count }}</i>
             </div>
         </div>
+    </div>
+</div>
 {% endblock %}

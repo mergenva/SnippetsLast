@@ -1,0 +1,58 @@
+[
+  {
+    "model": "MainApp.snippet",
+    "fields": {
+      "name": "Hello world",
+      "lang": "python",
+      "code": "print('Hello world')"
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "fields": {
+      "name": "fhfhfh",
+      "lang": "JavaScript",
+      "code": "++++++++"
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "fields": {
+      "name": "New Snippet",
+      "lang": "C++",
+      "code": "////////////"
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "fields": {
+      "name": "Last",
+      "lang": "Python",
+      "code": "777777777777777777777"
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "fields": {
+      "name": "5SNIPPET",
+      "lang": "JS",
+      "code": "fghgfjtkyuk"
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "fields": {
+      "name": "dsbgfnhfnhgfg6",
+      "lang": "C++",
+      "code": "jkjhj,ui,yumt"
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "fields": {
+      "name": "7snippet",
+      "lang": "JS",
+      "code": "from fixtures"
+    }
+  }
+]
